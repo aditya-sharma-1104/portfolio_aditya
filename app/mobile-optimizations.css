@@ -1,0 +1,155 @@
+/* Mobile Performance Optimizations */
+
+/* Reduce animations and transitions on smaller screens */
+@media (max-width: 768px) {
+  /* Force immediate content visibility - ensure all content appears instantly */
+  [data-mobile-optimized],
+  [data-mobile-optimized] * {
+    opacity: 1 !important;
+    transform: translateY(0) translateX(0) scale(1) !important;
+  }
+
+  /* Smooth scrolling for better mobile experience */
+  html {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Optimize rendering performance */
+  * {
+    will-change: auto !important;
+  }
+
+  /* Reduce transform complexity */
+  .transform {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+
+  /* Simplify gradients and heavy effects on mobile */
+  .gradient-brand {
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.1), rgba(99, 102, 241, 0.1)) !important;
+  }
+
+  .hover\:neon:hover {
+    box-shadow: none !important;
+    border-color: inherit !important;
+  }
+
+  .blur-3xl {
+    filter: blur(8px) !important;
+  }
+  .blur-2xl {
+    filter: blur(4px) !important;
+  }
+  .backdrop-blur-md {
+    backdrop-filter: blur(4px) !important;
+  }
+
+  /* Disable complex animations */
+  .animate-spin {
+    animation: none !important;
+  }
+
+  /* Ensure Framer Motion animations don't delay content on mobile */
+  section > div {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* Force immediate rendering for all sections */
+  section {
+    opacity: 1 !important;
+  }
+
+  /* Optimize project cards */
+  .grid.gap-6 > * {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* Optimize images for faster loading */
+  img {
+    content-visibility: auto;
+  }
+
+  /* Reduce motion for users who prefer it */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* Touch-specific optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .hover\:scale-105:hover,
+  .hover\:scale-110:hover,
+  .hover\:-translate-y-0\.5:hover,
+  .hover\:shadow-lg:hover {
+    transform: none !important;
+    box-shadow: inherit !important;
+  }
+
+  /* Increase touch targets */
+  button,
+  a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Override touch target minimum size for compact bottom navbar */
+  nav a {
+    min-height: auto !important;
+    min-width: auto !important;
+  }
+}
+
+/* Additional mobile optimizations for smooth scrolling */
+@media (max-width: 768px) {
+  /* Prevent layout shift */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Ensure body doesn't cause scroll issues */
+  body {
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Optimize containers */
+  main {
+    overflow-x: hidden;
+  }
+
+  /* Improve text rendering */
+  h1, h2, h3, h4, h5, h6, p {
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Ensure sections have full visibility */
+  section * {
+    visibility: visible !important;
+  }
+
+  /* Prevent content from being cut off */
+  .grid {
+    overflow: visible;
+  }
+
+  /* Optimize grid layouts for mobile */
+  .grid.gap-6 {
+    grid-template-columns: 1fr;
+  }
+
+  /* Ensure images load properly */
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+}

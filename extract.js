@@ -1,0 +1,1 @@
+const fs = require('fs'); const pdf = require('pdf-parse'); let dataBuffer = fs.readFileSync('public/aditya-sharma-resume.pdf'); (pdf.default ? pdf.default(dataBuffer) : pdf(dataBuffer)).then(data => { fs.writeFileSync('resume_text.txt', data.text); console.log('Extracted'); });
