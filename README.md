@@ -52,15 +52,11 @@ The portfolio is engineered with a focus on performance, interactivity, and mode
   - Academic degree programs and achievements.
   - Technical breakthroughs and key project milestones.
 
-### 6. Certifications & Achievements
-- Verified technical certifications and credentials.
-- Includes credential links, issue dates, and validated skill competencies.
-
-### 7. Interactive Resume Hub
+### 6. Interactive Resume Hub
 - Embedded PDF resume viewer allowing visitors to inspect experience directly on the page.
 - Direct PDF download button.
 
-### 8. Contact Hub
+### 7. Contact Hub
 - Functional contact section with form validation and direct social connection channels (LinkedIn, GitHub, Email, X/Twitter).
 
 ---
