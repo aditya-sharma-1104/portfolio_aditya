@@ -88,22 +88,38 @@ export default function Projects() {
     const ctx = gsap.context(() => {
       const cards = containerRef.current?.querySelectorAll(".project-card");
       if (cards && cards.length > 0) {
-        gsap.fromTo(
-          cards,
-          { opacity: 0, y: 35 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.6,
-            stagger: 0.15,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: containerRef.current,
-              start: "top 80%",
-              toggleActions: "play none none none",
-            },
-          }
-        );
+        // Check if section is already in view (e.g. after category filter change)
+        const section = containerRef.current;
+        const inView = section
+          ? section.getBoundingClientRect().top < window.innerHeight * 0.85
+          : false;
+
+        if (inView) {
+          // Already visible — animate immediately without ScrollTrigger
+          gsap.fromTo(
+            cards,
+            { opacity: 0, y: 35 },
+            { opacity: 1, y: 0, duration: 0.5, stagger: 0.1, ease: "power2.out" }
+          );
+        } else {
+          // Not yet visible — use ScrollTrigger
+          gsap.fromTo(
+            cards,
+            { opacity: 0, y: 35 },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.6,
+              stagger: 0.15,
+              ease: "power2.out",
+              scrollTrigger: {
+                trigger: containerRef.current,
+                start: "top 80%",
+                toggleActions: "play none none none",
+              },
+            }
+          );
+        }
       }
     }, containerRef);
 
@@ -140,11 +156,10 @@ export default function Projects() {
             <button
               key={cat.id}
               onClick={() => setActiveCategory(cat.id)}
-              className={`text-xs font-mono px-4 py-2 rounded-lg border transition-all duration-300 ${
-                activeCategory === cat.id
+              className={`text-xs font-mono px-4 py-2 rounded-lg border transition-all duration-300 ${activeCategory === cat.id
                   ? "bg-white/10 text-white border-brand/60 shadow-[0_0_15px_rgba(255,255,255,0.1)] font-semibold"
                   : "bg-zinc-950/60 text-zinc-400 border-white/5 hover:border-white/20 hover:text-white"
-              }`}
+                }`}
             >
               {cat.label}
             </button>
@@ -166,7 +181,7 @@ export default function Projects() {
                   fill
                   className="object-cover group-hover:scale-[1.03] transition-transform duration-500"
                 />
-                
+
                 {/* Visual Gradient Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent opacity-80 group-hover:opacity-40 transition-opacity duration-500" />
 

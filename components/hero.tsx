@@ -90,7 +90,7 @@ export default function Hero() {
       className="relative min-h-screen w-full flex items-center md:items-end justify-center py-20 md:py-0 md:pb-16 px-4 sm:px-6 md:px-12 overflow-hidden bg-[#000000]"
     >
       {/* Background name spanning horizontally across the center (behind the head/shoulders) */}
-      <div className="absolute top-[20%] md:top-[20%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center pointer-events-none select-none z-0 hidden md:block">
+      <div className="absolute top-[32%] md:top-[32%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center pointer-events-none select-none z-0 hidden md:block">
         <h1
           ref={nameRef}
           className="font-sans text-[11vw] md:text-[12vw] lg:text-[13vw] font-black uppercase tracking-tighter leading-none text-zinc-800/95"

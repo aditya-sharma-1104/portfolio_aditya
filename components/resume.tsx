@@ -256,7 +256,7 @@ export default function Resume() {
         "",
         "$ ./download_resume.sh",
         "[INFO] Initiating resume package download...",
-        "[INFO] Resolving endpoint: public/Sharma_Aditya_Resume_110405.pdf",
+        "[INFO] Resolving endpoint: public/Aditya_Kumar_Sharma_Resume.pdf",
       ]);
 
       let currentProgress = 0;
@@ -290,8 +290,8 @@ export default function Resume() {
 
             // Trigger physical download
             const link = document.createElement("a");
-            link.href = "/Sharma_Aditya_Resume_110405.pdf";
-            link.download = "Sharma_Aditya_Resume_110405.pdf";
+            link.href = "/Aditya_Kumar_Sharma_Resume.pdf";
+            link.download = "Aditya_Kumar_Sharma_Resume.pdf";
             link.click();
           }, 300);
         }
@@ -312,7 +312,7 @@ export default function Resume() {
           "[SUCCESS] Redirecting output stream to window context.",
         ]);
         setIsTerminalRunning(false);
-        window.open("/varun-sinha-resume.pdf", "_blank", "noopener,noreferrer");
+        window.open("/Aditya_Kumar_Sharma_Resume.pdf", "_blank", "noopener,noreferrer");
       }, 1200);
     } else if (scriptType === "test") {
       setTerminalLogs((prev) => [

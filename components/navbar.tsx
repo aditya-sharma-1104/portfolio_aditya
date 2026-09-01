@@ -10,7 +10,6 @@ const NAV_ITEMS = [
   { id: "skills", label: "Skills", icon: Code2 },
   { id: "projects", label: "Projects", icon: Folder },
   { id: "journey", label: "Experience", icon: History },
-  { id: "certifications", label: "Certifications", icon: Award },
   { id: "resume", label: "Resume", icon: FileText },
   { id: "contact", label: "Contact", icon: Mail },
 ];
@@ -22,8 +21,8 @@ export default function Navbar() {
   useEffect(() => {
     const observerOptions = {
       root: null,
-      rootMargin: "-20% 0px -60% 0px",
-      threshold: 0.15,
+      rootMargin: "-10% 0px -50% 0px",
+      threshold: 0.05,
     };
 
     const handleIntersection = (entries: IntersectionObserverEntry[]) => {
@@ -48,7 +47,9 @@ export default function Navbar() {
     e.preventDefault();
     const el = document.getElementById(id);
     if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
+      const yOffset = -80; // account for fixed navbar height
+      const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
       setActiveSection(id);
     }
   };
@@ -96,9 +97,8 @@ export default function Navbar() {
                 className="relative z-10 flex items-center justify-center"
               >
                 <Icon
-                  className={`h-[18px] w-[18px] sm:h-5 sm:w-5 transition-colors duration-300 ${
-                    isActive ? "text-brand drop-shadow-[0_0_8px_rgba(34,197,94,0.5)]" : "text-zinc-400"
-                  }`}
+                  className={`h-[18px] w-[18px] sm:h-5 sm:w-5 transition-colors duration-300 ${isActive ? "text-brand drop-shadow-[0_0_8px_rgba(34,197,94,0.5)]" : "text-zinc-400"
+                    }`}
                 />
               </motion.div>
 

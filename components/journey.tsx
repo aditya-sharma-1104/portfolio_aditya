@@ -97,7 +97,7 @@ export default function Journey() {
                 scrollTrigger: {
                   trigger: node,
                   start: "top 92%",
-                  toggleActions: "play none none reverse",
+                  toggleActions: "play none none none",
                 },
               }
             );
@@ -128,7 +128,7 @@ export default function Journey() {
                 scrollTrigger: {
                   trigger: node,
                   start: "top 90%",
-                  toggleActions: "play none none reverse",
+                  toggleActions: "play none none none",
                 },
               }
             );
@@ -216,7 +216,7 @@ export default function Journey() {
                     {/* Left Panel */}
                     <div
                       className={`w-full md:w-[45%] pl-10 md:pl-0 ${
-                        isEven ? "md:text-right md:order-1" : "md:order-3 invisible md:block pointer-events-none"
+                        isEven ? "md:text-right md:order-1" : "md:order-3 hidden md:block pointer-events-none"
                       }`}
                     >
                       {isEven && (
@@ -256,7 +256,7 @@ export default function Journey() {
                     {/* Right Panel */}
                     <div
                       className={`w-full md:w-[45%] pl-10 md:pl-0 ${
-                        !isEven ? "md:text-left md:order-3" : "md:order-1 invisible md:block pointer-events-none"
+                        !isEven ? "md:text-left md:order-3" : "md:order-1 hidden md:block pointer-events-none"
                       }`}
                     >
                       {!isEven && (

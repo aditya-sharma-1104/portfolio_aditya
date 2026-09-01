@@ -87,7 +87,7 @@ export default function About() {
     <section
       id="about"
       ref={containerRef}
-      className="pt-24 md:pt-40 pb-24 border-t border-white/5 bg-[#000000] relative"
+      className="pt-24 md:pt-40 pb-24 border-t border-white/5 bg-[#000000] relative scroll-mt-20"
     >
       <div className="mx-auto w-full max-w-6xl px-4 md:px-6">
         {/* 2-Column Grid */}
